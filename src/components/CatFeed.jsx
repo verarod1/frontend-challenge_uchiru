@@ -52,12 +52,10 @@ export default function CatFeed({ favorites, toggleFavorite }) {
     <div className="cats-grid"> 
       {cats.map((cat, index) => {
         const isLast = cats.length === index + 1;
-        // 2. Проверяем, есть ли текущий кот в массиве любимых
         const isLiked = favorites.some(fav => fav.id === cat.id);
         
         return (
-          <div ref={isLast ? lastCatElementRef : null} key={`${cat.id}-${index}`}>
-            {/* 3. Передаем все нужные данные в карточку */}
+          <div ref={isLast ? lastCatElementRef : null} key={cat.id}>
             <CatCard 
               cat={cat} 
               isLiked={isLiked} 

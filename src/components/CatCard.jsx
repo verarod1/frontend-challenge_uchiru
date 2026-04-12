@@ -6,6 +6,7 @@ function CatCard({ cat, isLiked, toggleFavorite }) {
       <img src={cat.url} alt="Pinterest cat" className="cat-image" loading="lazy" />
       <button 
         className="favorite-btn"
+        aria-label={isLiked ? "Убрать из любимых" : "Добавить в любимые"}
         onClick={() => toggleFavorite(cat)}
       >
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
