@@ -1,16 +1,34 @@
-# React + Vite
+## Cat Feed (Frontend Challenge)
+**[Посмотреть проект вживую](https://verarod1.github.io/frontend-challenge_uchiru/)**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для просмотра изображений котиков с бесконечной лентой. Проект загружает случайные фотографии котов через API, поддерживает бесконечный скролл и позволяет сохранять понравившиеся изображения в «Любимые» с хранением данных на стороне клиента.
 
-Currently, two official plugins are available:
+## Функционал
+* **Бесконечный скролл:** автоматическая подгрузка новых котиков при прокрутке вниз (реализовано через нативный `IntersectionObserver`).
+* **Сохранение лайков:** данные о любимых котиках хранятся в `localStorage` и не пропадают при обновлении страницы.
+* **Вкладки:** переключение между общей лентой и сохраненными фотографиями.
+* **UI/UX:** hover-эффекты с мягким свечением, адаптивная сетка карточек.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Технологии
+* React 18 (Hooks: `useState`, `useEffect`, `useCallback`, `useRef`)
+* Vite
+* Vanilla CSS (CSS Grid, Flexbox)
+* [TheCatAPI](https://thecatapi.com/) для получения данных
 
-## React Compiler
+## Запуск проекта локально
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Клонируйте репозиторий:
+\`\`\`bash
+git clone https://github.com/verarod1/frontend-challenge_uchiru.git
+\`\`\`
 
-## Expanding the ESLint configuration
+2. Установите зависимости:
+\`\`\`bash
+npm install
+\`\`\`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Запустите сервер для разработки:
+\`\`\`bash
+npm run dev
+\`\`\`
+
