@@ -79,7 +79,7 @@ export default function CatFeed({ favorites, toggleFavorite }) {
         );
       })}
       
-      {loading && <div className="loader">Ищем новых котиков...</div>}
+      {loading && <div className="loader">... загружаем еще котиков ...</div>}
     </div>
   );
 }
