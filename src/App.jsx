@@ -1,7 +1,7 @@
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import CatFeed from './components/CatFeed';
 import CatCard from './components/CatCard';
-import { useState, useEffect, useCallback } from 'react';
 
 function App() {
   const [activeTab, setActiveTab] = useState('all');
@@ -15,16 +15,16 @@ function App() {
     localStorage.setItem('catFavorites', JSON.stringify(favorites));
   }, [favorites]);
 
-const toggleFavorite = useCallback((cat) => {
-  setFavorites(prev => {
-    const isLiked = prev.some(fav => fav.id === cat.id);
-    if (isLiked) {
-      return prev.filter(fav => fav.id !== cat.id);
-    } else {
-      return [...prev, cat];
-    }
-  });
-}, []);
+  const toggleFavorite = useCallback((cat) => {
+    setFavorites(prev => {
+      const isLiked = prev.some(fav => fav.id === cat.id);
+      if (isLiked) {
+        return prev.filter(fav => fav.id !== cat.id);
+      } else {
+        return [...prev, cat];
+      }
+    });
+  }, []);
 
   return (
     <div>

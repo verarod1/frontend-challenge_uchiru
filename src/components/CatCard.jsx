@@ -3,11 +3,11 @@ import './CatCard.css';
 function CatCard({ cat, isLiked, toggleFavorite }) {
   return (
     <div className="cat-card">
-      <img src={cat.url} alt="Pinterest cat" className="cat-image" loading="lazy" />
+      <img src={cat.url} alt="Cat" className="cat-image" loading="lazy" />
       <button 
         className="favorite-btn"
-        aria-label={isLiked ? "Убрать из любимых" : "Добавить в любимые"}
         onClick={() => toggleFavorite(cat)}
+        aria-label={isLiked ? "Убрать из избранного" : "Добавить в избранное"}
       >
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path 

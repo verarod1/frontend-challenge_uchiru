@@ -1,19 +1,21 @@
 .header {
   background-color: #2196f3;
   display: flex;
-  padding: 0 40px;
+  padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  justify-content: center;
 }
 
 .tab {
   background: none;
   border: none;
   color: white;
-  padding: 24px 32px;
+  padding: 16px 20px;
   font-size: 14px;
   cursor: pointer;
   opacity: 0.7;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .tab:hover {
@@ -26,39 +28,38 @@
 }
 
 .main-content {
-  padding: 40px;
+  padding: 0;
 }
+
 .cats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 225px);
-  gap: 48px;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  gap: 24px;
   justify-content: center;
-}
-.cat-card {
-  position: relative;
+  padding: 20px;
 }
 
-.like-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.loader {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #666;
 }
 
-.like-btn:hover {
-  transform: scale(1.1);
-}
+@media (max-width: 600px) {
+  .header {
+    padding: 0 10px;
+  }
+  
+  .tab {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
 
-.like-btn.active {
-  background: white;
+  .cats-grid {
+    gap: 16px;
+    padding: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
 }
