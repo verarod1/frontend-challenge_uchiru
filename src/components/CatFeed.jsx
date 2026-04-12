@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import CatCard from './CatCard';
 
-export default function CatFeed() {
+export default function CatFeed({ favorites, toggleFavorite }) {
   const [cats, setCats] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -52,9 +52,17 @@ export default function CatFeed() {
     <div className="cats-grid"> 
       {cats.map((cat, index) => {
         const isLast = cats.length === index + 1;
+        // 2. Проверяем, есть ли текущий кот в массиве любимых
+        const isLiked = favorites.some(fav => fav.id === cat.id);
+        
         return (
           <div ref={isLast ? lastCatElementRef : null} key={`${cat.id}-${index}`}>
-            <CatCard imageUrl={cat.url} />
+            {/* 3. Передаем все нужные данные в карточку */}
+            <CatCard 
+              cat={cat} 
+              isLiked={isLiked} 
+              toggleFavorite={toggleFavorite} 
+            />
           </div>
         );
       })}
