@@ -23,10 +23,21 @@ export default function CatFeed({ favorites, toggleFavorite }) {
   }, [loading, hasMore]);
 
   useEffect(() => {
+    return () => {
+      if (observer.current) observer.current.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
     const fetchCats = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&page=${page}&order=DESC`);
+        const response = await fetch(
+          `https://api.thecatapi.com/v1/images/search?limit=10&page=${page}&order=DESC`,
+          { signal: controller.signal }
+        );
         const newCats = await response.json();
 
         if (newCats.length === 0) {
@@ -39,6 +50,7 @@ export default function CatFeed({ favorites, toggleFavorite }) {
           });
         }
       } catch (error) {
+        if (error.name === 'AbortError') return; 
         console.error("Ошибка при загрузке ленты:", error);
       } finally {
         setLoading(false);
@@ -46,6 +58,8 @@ export default function CatFeed({ favorites, toggleFavorite }) {
     };
 
     fetchCats();
+
+    return () => controller.abort();
   }, [page]);
 
   return (

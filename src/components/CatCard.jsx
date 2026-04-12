@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import './CatCard.css';
 
 function CatCard({ cat, isLiked, toggleFavorite }) {
   return (
     <div className="cat-card">
-      <img src={cat.url} alt="Cat" className="cat-image" loading="lazy" />
+      <img src={cat.url} alt="Случайный кот" className="cat-image" loading="lazy" />
       <button 
         className="favorite-btn"
         onClick={() => toggleFavorite(cat)}
@@ -22,4 +23,4 @@ function CatCard({ cat, isLiked, toggleFavorite }) {
   );
 }
 
-export default CatCard;
+export default memo(CatCard);

@@ -38,3 +38,8 @@
 .cat-card:hover .favorite-btn {
   opacity: 1;
 }
+@media (hover: none) {
+  .favorite-btn {
+    opacity: 1;
+  }
+}
